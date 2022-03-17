@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        {
+        let actividad="Primera practica de JS";
+        console.log("Actividad: ",actividad);
+        let alumno="Edgar David López Cruz";
+        console.log("Alumno: ",alumno);
+        let materia="Fundamentos de Programación";
+        console.log("Materia: ",materia);
+        }
+        
+        {
+        console.log("Numerico");
+        let x=4;
+        console.log("valor de x:", x);
+        let y= 3.14159;
+        console.log("valor de y:", y);
+        console.log("Cadena");
+        let nombre='Edgar David López Cruz';
+        console.log(nombre);
+        console.log("Boleano");
+        let valorV=true;
+        let valorF=false;
+        console.log("valorV: ",valorV);
+        console.log("valorF: ",valorF);
+        }
+        
+        // 2. Agrega tus propios comentarios al codigo
+        {
+        /* 1.-¿Estas variables son validas? (Prueba en el interprete y responde la pregunta)
+        Respuesta: No son validas: en la primera el nombre no puede iniciar con numero.
+        en la segunda no puede llevar el guion y en la tercera no puede llevar espacio. 
+        let 2myvar = "John";
+        let my-var = "John";
+        let my var = "john";*/
+        }
+        
+        {
+        let x="JS";
+        let y="is";
+        let z="awesome";
+        console.log( x + " " + y + " "+ z);
+        console.log( x + y + z);
+        console.log( `${x} ${y} ${z}`);
+        /* 4.-Nota los espacios que se hicieron en la concatenación " ", explica por que los usamos:
+        Respuesta: Usamos los espacios para separar las palabras con un espacio, de otra manera se concadenan 
+        las palabras una seguida de la otra, lo cual generaria lo siguiente: JSisawesome*/
+        }
+        
+        /*6.- Para obtener la longitud de una cadena, usa el atributo length. 
+        (6. Intenta con varias cadenas y muestra el resultado).*/
+        let cadena1="Hola a todos";
+        console.log("Cadena 1.",cadena1, "Tamaño:", cadena1.length);
+        let cadena2="Aprendiendo estoy";
+        console.log("Cadena 2.",cadena2, "Tamaño:", cadena2.length);
+        let cadena3="La practica hace al maestro";
+        console.log("Cadena 3.",cadena3, "Tamaño:", cadena3.length);
+
+        /*(7. Prueba cada uno de los ejercicios de los boleanos en JS).
+         Explica la diferencia entre las variables undefined y null.
+         Respuesta: undefined es una variable que no ha sido inicializada, y null
+         es el valor que asignamos a una variable para indicar que no tiene algun valor. */
+         console.log(Boolean("abc"));
+         console.log(Boolean(123));
+         console.log(Boolean(["apple","cherry","banana"]));
+         console.log(Boolean(null));
+         console.log(Boolean(0));
+         console.log(Boolean(""));
+
+        {
+        /*9.- PRACTICA: Escribe un sentencia por cada uno de los operadores y ejecutalo en el navegador.*/
+        let a=20;
+        let b=10;
+        let c=20;
+        let resp;
+        console.log("Operadores aritmeticos.");
+        console.log("a:",a,"b:",b,"c:",c);
+        console.log("suma a+b: ",a+b);
+        console.log("resta a-b: ",a+b);
+        console.log("Multiplicacion a*b: ",a*b);
+        console.log("Modulo a%b: ",a%b);
+        console.log("Potencia a**b: ",a**b);
+
+        console.log("Operadores Asignacion.");
+        a=25;
+        console.log("=: ",a);
+        a+=15;
+        console.log("+=: ",a);
+        a-=25;
+        console.log("-=: ",a);
+        a*=5;
+        console.log("*=: ",a);
+        a/=3;
+        console.log("/=: ",a);
+        a%=2;
+        console.log("%=: ",a);
+        a=10;
+        a**=2;
+        console.log("**=: ",a);
+        a&=c;
+        console.log("&=: ",a);
+        a|=c;
+        console.log("|=: ",a);
+        a^=2;
+        console.log("^=: ",a);
+        a>>=3;
+        console.log(">>=: ",a);
+        a<<=4;
+        console.log("<<=: ",a);
+
+        console.log("Operadores Comparación.");
+        a=20;
+        b=15;
+        c=20;
+        console.log("a:",a,"b:",b,"c:",c);
+        console.log("==: ",a==b);
+        console.log("===: ",a===c);
+        console.log("!=: ",a!=c);
+        console.log(">: ",a>b);
+        console.log("<: ",a<b);
+        console.log(">=: ",a>=c);
+        console.log("<=: ",a<=c);
+
+        console.log("Operadores Lógicos.");
+        console.log("a<b && b<c: ",a<b && b<c);
+        console.log("a<b || b<c: ",a<b || b<c);
+        console.log("!(a<b && b<c): ",!(a<b && b<c));
+        }
+
+        { //Ejercicio 1
+            console.log("Ejercicio 1.");
+            let x=5;
+            let y=10;
+            let z;
+            z=x+y;
+            console.log(z);
+        }
+        { //Ejercicio 2
+            console.log("Ejercicio 2.");
+            console.log("MyFirstName=john");
+            let MyFirstName="john";
+            console.log(MyFirstName);
+        }
+        {   //Ejercicio 3
+            /*¿qué tipo de datos sería?
+            Respuesta: seria de tipo Number o numero.*/
+            console.log("Ejercicio 3.");
+            x = 20.5;
+            console.log(typeof(x));
+        }
+        {   //Ejercicio 4
+            /*Utiliza el método len para imprimir la longitud de la cadena, ¿que valor da?
+            Respuesta: Su longitud es de 11 caracteres*/
+            console.log("Ejercicio 4.");
+            x = "Hello World";
+            console.log(x.length);
+        }
+
+    </script>
+</body>
+</html>
