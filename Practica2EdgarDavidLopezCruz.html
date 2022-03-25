@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Práctica no. 2 con JS.</h1>
+    <h5>Calculadora basica.</h5>
+    <h5>implementacion de la formula cuadratica.</h5>
+    <script>
+        
+        console.log("Practica 2 con JS.");
+        let opc;
+        do {//menu
+            console.log("MENU");
+            console.log("1. Calculadora Basica.");
+            console.log("2. Formula cuadratica");
+            console.log("3. Salir");
+            opc=parseInt(prompt('Ingrese el numero de la opcion a probar:'));
+            
+            if (opc===1) {//submenu
+                console.log("Calculadora basica.");
+                let num1,num2,resultado,opc1;
+                console.log("   MENU    ")
+                console.log("1. Suma");
+                console.log("2. Resta");
+                console.log("3. Multiplicacion");
+                console.log("4. Division");
+                console.log("5. Salir");
+
+                do {
+                    opc1=parseInt(prompt('Ingrese el numero de la operacion a realizar:'));
+
+                    while (opc1<=4) {
+                        num1=parseFloat(prompt('Ingrese su primer numero:'));
+                        num2=parseFloat(prompt('Ingrese su segundo numero:'));
+
+                        if (opc1===1) {//suma
+                            resultado=num1+num2;
+                            console.log("Resultado de la suma: ",resultado);
+                            break;
+                        } else if(opc1===2){//resta
+                            resultado=num1-num2;
+                            console.log("Resultado de la resta: ",resultado);    
+                            break;
+                        } else if(opc1===3){//multiplicacion
+                            resultado=num1*num2;
+                            console.log("Resultado de la multiplicacion: ",resultado);
+                            break;
+                        }else if(opc1===4){//division
+                            resultado=num1/num2;
+                            console.log("Resultado de la division: ",resultado);
+                            break;
+                        } else{
+                            break;
+                        }
+                    }
+                } while (opc1<=4);
+
+            } else if(opc===2){
+                console.log("Resolucion por formula Cuadratica.");
+                let a,b,c,resul1,resul2,opc2;
+                a=parseFloat(prompt('Ingrese el valor a:'));
+                b=parseFloat(prompt('Ingrese el valor b:'));
+                c=parseFloat(prompt('Ingrese el valor c:'));
+
+                //primera solucion +
+                raiz=Math.sqrt(((b*b)-(4*a*c)),2);
+                resul1=((-1*b)+raiz)/(2*a);
+            
+                //segunda solucion -
+                raiz=Math.sqrt(((b*b)-(4*a*c)),2);
+                resul2=((-1*b)+(-1*raiz))/(2*a);
+
+                //Posible casos de salida(no tenga solucion, tenga solo una solucion, tenga dos soluciones)
+                if(Number.isNaN(resul1)===true || Number.isNaN(resul2)===true ){
+                    console.log("No tiene solucion.");
+                } else if (resul1===resul2) {
+                    console.log("Solo tiene una solucion: ",resul1);
+                } else {
+                    console.log("Su primera solucion es: ",resul1);
+                    console.log("Su segunda solucion solucion es: ",resul2);
+                }
+            } else{
+                break;
+            }
+        } while (opc<3);
+        console.log("Gracias.");
+                
+    </script>
+    
+</body>
+</html>
