@@ -7,8 +7,55 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Práctica no. 2 con JS.</h1>
+    <h5>Calculadora basica 2.0.</h5>
     <script>
-        
+        let operador,num1,num2,opr,resultado=0;
+        console.log("Operadores disponibles.");
+        console.log("Suma: +");
+        console.log("Resta: -");
+        console.log("Multiplicación: *");
+        console.log("Division: /");
+        console.log("Elevado al cuadrado: **");
+        console.log("Raiz: --");
+        console.log("Elevado al cubo: ***");
+
+        opr=prompt('ingrese el signo de la operacion:');
+        //nos aseguramos que el operador sea valido.
+        if (opr==="+"|| opr==="-"|| opr==="*"||opr==="/"|| opr==="**"|| opr==="--"|| opr==="***") {
+            //Dependiendo de la opcion leemos 1 o 2 numeros
+            if(opr==="**"|| opr==="--"|| opr==="***"){
+                num1=parseFloat(prompt('Ingrese el numero:')); 
+            }else{
+                num1=parseFloat(prompt('Ingrese su primer numero:'));
+                num2=parseFloat(prompt('Ingrese su segundo numero:'));
+            }
+            //definimos las operaciones
+            if (opr==="+") {//suma
+                resultado=num1+num2;
+            } else if (opr==="-") {//resta
+                resultado=num1-num2;
+             } else if(opr==="*"){//multiplicacion
+                resultado=num1*num1;
+            } else if(opr==="/"){//division
+                resultado=num1/num2;
+            } else if(opr==="**"){//Elevado al cuadrado
+                resultado=num1*num1;
+            } else if(opr==="--"){//Raiz
+                if(num1<=-1){
+                    console.log("No se puede obtener la raiz de un numero negativo");
+                }else{
+                    resultado=Math.sqrt(num1); 
+                }
+            } else if(opr==="***"){//Elevado al cubo
+                resultado=num1*num1*num1;
+            }
+            console.log("Resultado: ",resultado);
+        } else {
+            console.log("Operador no valido.");
+        }   
+        console.log("Gracias.");
+    
     </script>
     
 </body>
