@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Práctica No.4 con JS.</h1>
+    
+    <script>
+        //funciones
+        function calculadoraBasica() {//Calculadora basica y sus operaciones basicas
+            let num1,num2,resultado=undefined,subOpc,probarNuevamente;
+            console.log("Operadores disponibles.");
+            console.log("Suma: +");
+            console.log("Resta: -");
+            console.log("Multiplicación: *");
+            console.log("Division: /");
+
+            do{
+                opr=prompt('Ingrese el signo de la operacion:');
+                num1=parseFloat(prompt('Ingrese su primer numero:'));
+                num2=parseFloat(prompt('Ingrese su segundo numero:'));
+                if (isNaN(num1)===true || isNaN(num2)===true) {//numeros no validos
+                console.log("Los datos no son numeros.");
+                }else{
+                    if (opr==="+") {//suma
+                    resultado=num1+num2;
+                    } else if (opr==="-") {//resta
+                        resultado=num1-num2;
+                    } else if(opr==="*"){//multiplicacion
+                        resultado=num1*num2;
+                    } else if(opr==="/"){//division
+                        resultado=num1/num2;
+                    }else{//operador no vaido
+                        console.log("Operador no valido.");
+                        resultado=undefined;
+                    }
+                }
+                console.log("Resultado: ",resultado);
+                probarNuevamente=prompt('Volver a probar la calculador S/N:');
+            }while(probarNuevamente==="S");
+        }
+        
+        function longitudCadena(){//ejercicio 1
+            let cadena,probarNuevamente;
+            do{
+                cadena=prompt('Ingrese la cadena a calcular su tamaño: ');
+                if(cadena===""){
+                    console.log("Cadena vacia");
+                }else{
+                    console.log(`El tamaño de la cadena es de ${cadena.length} caracteres`); 
+                }
+                probarNuevamente=prompt('Volver a probar con otra cadena S/N:');
+            } while (probarNuevamente==="S");    
+        }
+
+        function recortarCadena() {//ejercicio 2
+            let cadena,longitud,probarNuevamente;
+            do{
+                cadena=prompt('Ingrese la cadena: ');
+                longitud=prompt('Ingrese el numero a cortar de caracteres: ');
+                if(cadena===""){
+                    console.log("Cadena vacia");
+                }else if(longitud<=-1){
+                    console.log("Longitud a cortar no valida.");
+                }else{ 
+                    console.log(cadena.slice(0,longitud));
+                }
+                probarNuevamente=prompt('Volver a probar con otra cadena S/N:');
+            } while (probarNuevamente==="S"); 
+        }
+
+        function stringAArray(){//ejercicio 3
+            let cadena,separador,probarNuevamente;
+            do {
+                cadena=prompt('Ingrese su cadena: ');
+                separador=prompt('Separador: ');
+                if(cadena===""){
+                    console.log("cadena vacia.");
+                }else if(separador===""){
+                    console.log("No ingreso separador.");
+                }else{
+                    console.info(cadena.split(separador));
+                }
+                probarNuevamente=prompt('Volver a probar con otra cadena S/N:');
+            } while (probarNuevamente==="S");   
+        }
+
+        function replicarCadena(){//ejercicio 4
+            let cadena,repeticiones,probarNuevamente;
+            do {
+                cadena=prompt('Ingrese su cadena: ');
+                repeticiones=prompt('Numero de repeticones: ');
+                if(cadena===""){
+                    console.log("cadena vacia.");
+                }else if(repeticiones===""){
+                    console.log("No ingresastes numero de repeticones");
+                }else if(repeticiones<=-1){
+                    console.log("Numero de repeticiones no valido");
+                }else{
+                    for (let i=1; i<=repeticiones; i++) {
+                        console.log(i,cadena);
+                    }
+                }
+                probarNuevamente=prompt('Volver a probar con otra cadena S/N:');
+            } while (probarNuevamente==="S"); 
+        }
+
+        let opc;
+        do{//Menu
+            console.log("MENU");
+            console.log("1. Calculadora Basica.");
+            console.log("2. Calcular longitud de una cadena de caracteres.");
+            console.log("3. Recortar una cadena de caracteres.");
+            console.log("4. Dado un String devuelve un Array de texto separado por un caracter.");
+            console.log("5. Repite un texto X veces");
+            console.log("6. Salir");
+            opc=parseInt(prompt('Ingrese el numero de la opcion a usar:'));
+
+            if(opc===1){//calculadora basica
+                calculadoraBasica();
+            }else if(opc===2){ //ejercicio 1
+                longitudCadena();
+            }else if(opc===3){//ejercicio 2 
+                recortarCadena();
+            }else if(opc===4){//ejercicio 3
+                stringAArray();
+            }else if(opc===5){//ejercicio 4
+                replicarCadena();
+            }else if(opc<=-1 || opc>=7){
+                console.log("opcion no valida");
+            }   
+        }while(opc!=6)
+        console.log("gracias"); 
+    </script>
+</body>
+</html>
