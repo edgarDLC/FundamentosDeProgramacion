@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Curso JavaScript: 36. Ejercicios de Lógica de Programación ( 3 / 10 ) 
+
+        /*5)programa una funcion que invierta las palabras de una cadena de texto, pe.mifuncion("Hola Mundo")devolvera "odnuM aloH"*/
+        const invertirCadena=(cadena="")=>(!cadena)?console.warn("No ingresastes una cadena de texto"):console.info(cadena.split("").reverse().join(""));
+
+        invertirCadena();
+        invertirCadena("Hola Mundo");
+        invertirCadena("javaScript es un lenguaje de programacion increible");
+
+
+        /*6)Programa una funcion para contar el número de veces que se repite una palabra en un texto largo, pe.miFuncion("hola mundo adios mundo","mundo")devolvera 2*/
+        const textoEnCadena=(cadena="",texto="")=>{
+            if (!cadena) return console.warn("No ingresastes el texto largo");
+            if(!texto) return console.warn("No ingresastes la palabra a evaluar");
+            let i=0,contador=0;
+            while(i!==-1){
+                i=cadena.indexOf(texto,i)
+                if(i!==-1){
+                    i++;
+                    contador++;
+                }
+            }
+            return console.info(`La palabra ${texto} se repite ${contador} veces`);
+        }
+
+        textoEnCadena("","mundo");
+        textoEnCadena("hola mundo adios mundo");
+        textoEnCadena("hola numdo adios mundo","hola");
+
+
+        /*7)Programa una funcion que valida si una palabra o frase dada, es un palindromo(que se lee igual en un sentido que en otro), pe.mifuncion("Salas")devolvera true*/
+        const palindromo=(palabra="")=>{
+            if(!palabra) return console.warn("No ingresaste una palabra o frase");
+            palabra=palabra.toLocaleLowerCase();
+            let alReves=palabra.split("").reverse().join("");
+            return(palabra===alReves) ? console.info(`Si es palindromo, palabra original ${palabra}, Palabra al revés ${alReves}`):console.info(`No es palindromo, palabra original ${palabra}, Palabra al revés ${alReves}`)
+        }
+
+        palindromo();
+        palindromo("hola Mundo");
+        palindromo("Salas");
+
+
+        /*8)programa una funcion que elimine cierto patron de caracteres de un texto dado pe.mifuncion("xyz1,xyz2,xyz3,xyz4 y xyz5","xyz")devolvera "1,2,3,4 y5"*/
+        const eliminarCaracteres=(texto="",patron="") => (!texto) ? console.warn("No ingresastes un texto"):(!patron) ? console.warn("No ingresaste un patrón de caracteres"):console.info(texto.replace(new RegExp(patron,"ig"),""));
+
+        eliminarCaracteres();
+        eliminarCaracteres("xyz1,xyz2,xyz3,xyz4 y xyz5");
+        eliminarCaracteres("xyz1,xyz2,xyz3,xyz4 y xyz5","xyz");
+
+
+        //Curso JavaScript: 37. Ejercicios de Lógica de Programación ( 4 / 10 ) 
+        
+        /*9) Programa una funcion que obtenga un numero aleatorio entre 501 y 600*/
+        const aleatorio=()=>console.info((Math.round(Math.random()*100)+500));
+
+        aleatorio();
+        aleatorio();
+
+        /*10) programa una funcion que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro) pe.mifuncion(2020)devolvera true*/
+        const capicua=(numero=0)=> {
+            if(!numero) return console.warn("No ingresastes un número");
+            if(typeof numero!=="number") return console.error(`El valor ${numero} ingresado, no es un número`);
+
+            numero=numero.toString();
+            let alReves=numero.split("").reverse().join("");
+
+            return(numero===alReves) ? console.info(`Si es capicua, Número original ${numero}, Numero al reves ${alReves}`):console.info(`No es capicua, Número original ${numero}, Numero al reves ${alReves}`)
+        }
+        capicua();
+        capicua("19");
+        capicua({});
+        capicua(2000);
+        capicua(2002);
+        capicua(212.212)
+
+        /*11) programa una función que calcule el factorial de un número(El factorial de un entero positivo n, se define como  el producto de todos los números enteros positivos desde 1 hasta n), pe.mifuncion(5) devolvera 120*/
+        const factorial=(numero=undefined)=>{
+            if(numero===undefined) return console.warn("No ingresastes un número");
+
+            if(typeof numero !== "number") return console.error(`El valor ${numero} ingresado, No es un némero`);
+
+            if(numero===0) return console.error("El numero no puede ser 0");
+
+            if(Math.sign(numero)===-1) return console.error("El número no puede ser negativo");
+
+            let factorial=1;
+            for(let i=numero;i>1;i--){
+                factorial*=i;
+            }
+
+            return console.info(`El factorial de ${numero} es ${factorial}`);
+        }
+
+        factorial();
+        factorial("5");
+        factorial([1,2,3]);
+        factorial(0);
+        factorial(-5);
+        factorial(5);
+        factorial(8);
+
+        //Curso JavaScript: 38. Ejercicios de Lógica de Programación ( 5 / 10 ) 
+
+        /* 12) Programa una función que determine si un número es primo (aquel que solo se dividepor si mismo y 1) o no , pe.mi Funcion(7) devolvera true*/
+        const numeroPrimo =(numero=undefined)=>{
+            if(numero===undefined) return console.warn("No ingresastes un número");
+
+            if(typeof numero !=="number") return console.error(`El valor ${numero} ingresado, No es un numero`);
+
+            if(numero===0) return console.error("El numero no puede ser 0");
+
+            if(numero===1) return console.error("El numero no puede ser 1");
+
+            if(Math.sign(numero)===-1) return console.error("El número no puede ser negativo");
+
+            let divisible=false;
+
+            for(let i=2;i<numero;i++){
+                if((numero%i)===0){
+                    divisible=true;
+                    break;
+                }
+            }
+            return(divisible)
+            ? console.log(`El numero ${numero}, No es primo`):console.log(`El numero ${numero}, Si es primo`);
+        }
+
+        numeroPrimo();
+        numeroPrimo("7");
+        numeroPrimo(true);
+        numeroPrimo(0);
+        numeroPrimo(1);
+        numeroPrimo(-13);
+        numeroPrimo(13);
+
+        /* 13) program una funcion que determina si un número es par o impar, pe.miFuncion(29) devolverá inpar*/
+        const numeroParImpar=(numero=undefined) => {
+            if(numero===undefined) return console.warn("No ingreastes un número");
+
+            if(typeof numero !=="number") return console.error(`El valor "${numero}" ingresado, No es un número`);
+
+            return((numero % 2)===0)
+            ? console.log(`El numero ${numero}, es Par`)
+            :console.log(`El numero ${numero}, es Impar`);
+        }
+
+        numeroParImpar();
+        numeroParImpar("23");
+        numeroParImpar(-398);
+        numeroParImpar(19);
+
+        /*14) programa una funcion para convertir grados Celsius fahrenheit y viceversa, pe.miFuncion(0,"C") devolvera 32°F*/
+        const convertirGrados = (grados=undefined, unidad=undefined)=>{
+            if(grados === undefined) return console.warn("no ingresastes grados a convertir");
+
+            if(typeof grados !== "number") return console.error(`El valor "${grados}" ingresado, No es un número`);
+
+            if(unidad===undefined) return console.warn("No ingresastes el tipo de grado a convertir");
+
+            if(typeof unidad !== "string") return console.error(`El valor "${grados}" ingresado, No es una cadena de texto`);
+
+            if(unidad==="C"){
+                return console.info(`${grados}°C = ${Math.round((grados*(9/5))+32)}°F`);
+            } else if(unidad=="F"){
+                return console.info(`${grados}°F = ${Math.round(((grados-32)*(5/9)))}°C`);
+            }else{
+                return console.error("El tipo de grados a convertir NO es válido");
+            }
+        }
+
+        convertirGrados();
+        convertirGrados("2");
+        convertirGrados(2);
+        convertirGrados(2,true);
+        convertirGrados(2,"Hola");
+        convertirGrados(2,"E");
+        convertirGrados(0,"C");
+        convertirGrados(100,"C");
+        convertirGrados(32,"F");
+    </script>
+</body>
+</html>
